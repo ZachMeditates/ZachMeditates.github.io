@@ -86,9 +86,10 @@
     const catchList = el('demo-catch-list');
     catchList.innerHTML = '';
     catches.forEach((li) => { li.classList.add('done'); catchList.append(li); });
-    el('demo-catches-s').textContent = `${catches.length} more worth a look, each with a catch`;
+    el('demo-catches-s').textContent = `${fmt(p.counts.catch)} more worth a look, each with a catch. A few of them`;
+    el('demo-read-h').textContent = `A few of the ${fmt(p.read)} read one by one`;
     el('demo-catches').open = false;
-    const worth = p.worthIt.length;
+    const worth = p.counts.worth;
     el('demo-worth-l').textContent = `worth an evening, out of ${fmt(p.arrived)} postings.`;
 
     if (!animate || still()) {
