@@ -1,14 +1,9 @@
-// The demo: one invented person's week, read the way Good Report reads it.
-// The data sits in the page (#demo-data), so it works offline and loads
-// with nothing extra.
 (() => {
   const el = (id) => document.getElementById(id);
   const src = el('demo-data');
   if (!src) return;
   const data = JSON.parse(src.textContent);
   const people = data.people;
-
-  // How each person is introduced on the buttons.
   const ROLE = { nurse: 'nurse', sales: 'healthcare sales', designer: 'designer', qa: 'quality assurance' };
   const first = (p) => p.name.split(' ')[0];
   const fmt = (n) => Number(n).toLocaleString('en-US');
@@ -32,13 +27,8 @@
     };
     frames.push(requestAnimationFrame(tick));
   }
-
-  /** Kept and set-aside jobs, mixed the way a real week reads. */
   function sequence(p) {
-    const kept = [
-      ...p.worthIt.map((j) => ({ ...j, cls: 'in' })),
-      ...p.withACatch.map((j) => ({ ...j, cls: 'catch' })),
-    ];
+    const kept = p.worthIt.map((j) => ({ ...j, cls: 'in' }));
     const out = p.setAside.map((j) => ({ ...j, cls: 'out' }));
     const list = [];
     while (kept.length || out.length) {
@@ -92,8 +82,14 @@
     list.innerHTML = '';
     const rows = sequence(p).map(row);
     rows.forEach((li) => list.append(li));
+    const catches = p.withACatch.map((j) => row({ ...j, cls: 'catch' }));
+    const catchList = el('demo-catch-list');
+    catchList.innerHTML = '';
+    catches.forEach((li) => { li.classList.add('done'); catchList.append(li); });
+    el('demo-catches-s').textContent = `${catches.length} more worth a look, each with a catch`;
+    el('demo-catches').open = false;
     const worth = p.worthIt.length;
-    el('demo-worth-l').textContent = `worth an evening. ${p.withACatch.length} more worth a look, each with a catch.`;
+    el('demo-worth-l').textContent = `worth an evening, out of ${fmt(p.arrived)} postings.`;
 
     if (!animate || still()) {
       el('demo-found').textContent = fmt(p.arrived);
@@ -102,7 +98,6 @@
       rows.forEach((li) => li.classList.add('done'));
       return;
     }
-    // Every row is readable from the start; the verdicts arrive one by one.
     el('demo-found').textContent = '0';
     el('demo-outside').textContent = '0';
     el('demo-worth').textContent = '0';
@@ -129,14 +124,11 @@
     if (b) current = people.find((p) => p.id === b.dataset.id) || current;
   });
   el('demo-again').addEventListener('click', () => show(current, true));
-
-  // At rest the finished week is on the page; it plays once when scrolled to.
   show(current, false);
   if ('IntersectionObserver' in window && !still()) {
     const io = new IntersectionObserver((entries) => {
       if (entries.some((e) => e.isIntersecting)) { io.disconnect(); show(current, true); }
     }, { rootMargin: '0px 0px -30% 0px' });
-    // The section is taller than a phone screen, so watch its first rows.
     io.observe(el('demo-who'));
   }
 })();

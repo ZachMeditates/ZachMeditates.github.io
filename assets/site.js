@@ -1,6 +1,3 @@
-// Sign up: sends the name and email through Web3Forms, which emails them on.
-// The access key goes in the hidden su-key field in index.html. Until it is
-// set, the form says it is not switched on rather than pretending to send.
 (() => {
   const form = document.getElementById('su-form');
   if (!form) return;
@@ -14,8 +11,15 @@
     const email = form.elements.email.value.trim();
     const key = form.elements.access_key.value.trim();
 
-    if (!name) return say('Add your name.', true);
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return say('That email address looks incomplete.', true);
+    const bad = (field, text) => {
+      field.setAttribute('aria-invalid', 'true');
+      field.focus();
+      say(text, true);
+    };
+    form.elements.name.removeAttribute('aria-invalid');
+    form.elements.email.removeAttribute('aria-invalid');
+    if (!name) return bad(form.elements.name, 'Add your name.');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return bad(form.elements.email, 'That email address looks incomplete.');
     if (!key) return say('Sign up is not switched on yet, so nothing was sent.', true);
 
     send.disabled = true;
