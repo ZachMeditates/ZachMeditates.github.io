@@ -75,6 +75,12 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .step p { color: var(--mid); }
 .promise { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--ink); font: italic 400 clamp(1.25rem, 2.2vw, 1.6rem)/1.4 var(--display); }
 
+/* About */
+.about { padding-block: 64px 8px; display: grid; gap: 10px; }
+.about h2 { font-size: clamp(1.9rem, 5vw, 2.6rem); }
+.about h2 span { font: 500 .72rem/1 var(--text); letter-spacing: .16em; text-transform: uppercase; color: var(--mid); margin-left: 10px; vertical-align: middle; }
+.about p { font-size: clamp(1.08rem, 1.6vw, 1.3rem); color: var(--mid); }
+
 /* Sign up */
 .signup { margin-top: 48px; padding-block: 56px 72px; display: grid; gap: 28px; scroll-margin-top: 16px; }
 @media (min-width: 900px) { .su-form { grid-template-columns: 1fr 1fr auto; align-items: end; } .su-note { grid-column: 1 / -1; } }
