@@ -4,6 +4,7 @@
   if (!src) return;
   const data = JSON.parse(src.textContent);
   const people = data.people;
+  el('demo-live').hidden = false;
   const ROLE = { nurse: 'nurse', sales: 'healthcare sales', designer: 'designer', qa: 'quality assurance' };
   const first = (p) => p.name.split(' ')[0];
   const fmt = (n) => Number(n).toLocaleString('en-US');
