@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Good Report</title>
+<meta name="description" content="Every job posting read against you: what you can do and what you want from work. What is left comes with a score out of five and one plain sentence on why.">
+<meta name="theme-color" content="#FAF8F4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Archivo:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="preload" as="image" href="assets/hero-job.webp" type="image/webp">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the page</a>
+
+<header class="wrap top">
+  <a class="mark" href="#">Good Report</a>
+  <nav class="nav" aria-label="Main">
+    <a href="#how">How it works</a>
+    <a href="#signup">Sign up</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="wrap hero" aria-labelledby="headline">
+    <div class="hero-text">
+      <p class="label">Your job search, read for you</p>
+      <h1 id="headline">Searched by who you are, not what you&rsquo;re called.</h1>
+      <p class="sub">Good Report reads every job posting against you: what you can do, and what you want from work. Anything in doubt is held back. What is left comes with a score out of five and one plain sentence on why.</p>
+    </div>
+    <figure class="hero-phone">
+      <div class="phone">
+        <img src="assets/hero-job.webp" width="720" height="1558" fetchpriority="high"
+          alt="A job on a phone: Senior Product Designer at Fernway Software, 4.5 out of 5, with pay, a resume and cover letter, the reasons it fits, what to watch, and a link to apply on the employer's own site.">
+      </div>
+      <figcaption>A real page from Good Report. The person and the employers are invented.</figcaption>
+    </figure>
+  </section>
+
+  <section class="wrap guide" aria-labelledby="guide-h">
+    <h2 id="guide-h" class="visually-hidden">Three weeks of postings for one designer</h2>
+    <div class="row"><p class="n">9,229</p><p>job postings in three weeks, for one designer.</p></div>
+    <div class="row"><p class="n">9,218</p><p>ruled out on place: another state, or in an office every day.</p></div>
+    <div class="row"><p class="n hot">4</p><p>worth an evening. Each with its reasons, a resume and a cover letter.</p></div>
+  </section>
+
+  <section class="wrap steps" id="how" aria-labelledby="how-h">
+    <h2 id="how-h">How it works</h2>
+    <div class="step"><h3>Find</h3><p>Over 130 employers&rsquo; own job boards, federal jobs and the big job sites.</p></div>
+    <div class="step"><h3>Read</h3><p>Every posting opened. Pay, place, hours, what it asks for.</p></div>
+    <div class="step"><h3>Check</h3><p>Against what you told us. Nothing is recommended on a doubt.</p></div>
+    <div class="step"><h3>Write</h3><p>A resume, a cover letter and an interview guide for the ones that make it.</p></div>
+    <p class="promise">We prepare. You apply. Nothing is ever sent for you.</p>
+  </section>
+
+  <section class="wrap signup" id="signup" aria-labelledby="signup-h">
+    <div>
+      <h2 id="signup-h">Sign up</h2>
+      <p class="sub">Leave your name and email and you will hear back about starting your own search.</p>
+    </div>
+    <form class="su-form" id="su-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+      <input type="hidden" name="access_key" id="su-key" value="">
+      <input type="hidden" name="subject" value="New sign up from the Good Report site">
+      <input type="hidden" name="from_name" value="Good Report site">
+      <input type="checkbox" name="botcheck" class="trap" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label for="su-name">Name<input id="su-name" name="name" type="text" autocomplete="name" required maxlength="120"></label>
+      <label for="su-email">Email<input id="su-email" name="email" type="email" autocomplete="email" required maxlength="200"></label>
+      <button type="submit" id="su-send">Sign up</button>
+      <p class="su-note" id="su-note" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  <p>Good Report</p>
+</footer>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>
