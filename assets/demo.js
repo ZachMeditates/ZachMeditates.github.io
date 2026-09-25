@@ -40,10 +40,14 @@
     return list.map((j) => {
       const li = document.createElement('li');
       li.className = j.cls;
-      li.innerHTML = '<span class="t"></span><span class="co"></span><span class="s"></span><span class="why"></span>';
+      const STAMP = { place: 'Too far', requirement: 'Missing a must', hours: 'Wrong hours', pay: 'Pay too low', closed: 'Closed', fit: 'Not a fit' };
+      li.innerHTML = j.cls === 'in'
+        ? '<span class="t"></span><span class="co"></span><span class="s"></span><span class="why"></span>'
+        : '<span class="t"></span><span class="co"></span><span class="tag"></span><span class="why"></span>';
+      if (j.cls !== 'in') li.querySelector('.tag').textContent = STAMP[j.kind] || 'Not a fit';
       li.querySelector('.t').textContent = j.role;
       li.querySelector('.co').textContent = [j.company, j.remote ? 'from home' : j.where].join(' · ');
-      li.querySelector('.s').textContent = j.cls === 'in' ? Number(j.score).toFixed(1) : '';
+      if (j.cls === 'in') li.querySelector('.s').textContent = Number(j.score).toFixed(1);
       li.querySelector('.why').textContent = j.why;
       return li;
     });
