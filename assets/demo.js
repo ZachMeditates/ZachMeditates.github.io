@@ -45,7 +45,8 @@
         ? '<span class="t"></span><span class="co"></span><span class="s"></span><span class="why"></span>'
         : '<span class="t"></span><span class="co"></span><span class="tag"></span><span class="why"></span>';
       if (j.cls !== 'in') li.querySelector('.tag').textContent = STAMP[j.kind] || 'Not a fit';
-      li.querySelector('.t').textContent = j.role;
+      if (j.cls === 'out') { const s = document.createElement('s'); s.textContent = j.role; li.querySelector('.t').append(s); }
+      else li.querySelector('.t').textContent = j.role;
       li.querySelector('.co').textContent = [j.company, j.remote ? 'from home' : j.where].join(' · ');
       if (j.cls === 'in') li.querySelector('.s').textContent = Number(j.score).toFixed(1);
       li.querySelector('.why').textContent = j.why;
