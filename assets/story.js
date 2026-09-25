@@ -15,7 +15,8 @@
         ['What do you need?', 'At least $85,000.'],
         ['Deal breakers?', 'Five days a week in an office.'],
       ],
-      resume: 'Product Designer', pivot: 'Design Operations',
+      resume: 'Product Designer', pivot: 'Design Operations', picked: 'design operations',
+      also: ['Learning Experience Design', 'Product Owner'],
       guide: 'Moving into design operations',
     },
     nurse: {
@@ -25,7 +26,8 @@
         ['What do you need?', 'Day shifts, and at least $50,000.'],
         ['Deal breakers?', 'Nights.'],
       ],
-      resume: 'Licensed Practical Nurse', pivot: 'Utilization Review',
+      resume: 'Licensed Practical Nurse', pivot: 'Utilization Review', picked: 'utilization review',
+      also: ['Care Coordination', 'Prior Authorization'],
       guide: 'Moving from the clinic to review work',
     },
     qa: {
@@ -35,17 +37,20 @@
         ['What do you need?', 'At least $95,000.'],
         ['Deal breakers?', 'Writing code all day.'],
       ],
-      resume: 'Quality Assurance Lead', pivot: 'IT Compliance',
+      resume: 'Quality Assurance Lead', pivot: 'IT Compliance', picked: 'IT compliance',
+      also: ['Product Owner', 'Business Analysis'],
       guide: 'From QA lead to compliance',
     },
     sales: {
       a: 'a healthcare sales director', tint: '#9A5B2E',
       talk: [
-        ['What do you want?', 'Healthcare business development.'],
+        ['What do you want?', 'Healthcare business development, or close to it.'],
         ['What do you need?', 'Base pay of at least $110,000.'],
         ['Deal breakers?', 'Commission only, or moving.'],
       ],
-      resume: 'Healthcare Business Development', pivot: '', guide: '',
+      resume: 'Healthcare Business Development', pivot: 'Physician Relations', picked: 'physician relations',
+      also: ['Provider Network Management', 'Strategic Accounts'],
+      guide: 'From business development to physician relations',
     },
   };
   const SHORT = { place: 'Too far', requirement: 'Missing a must-have', hours: 'Wrong hours', pay: 'Pay too low', closed: 'Closed', fit: 'Not a fit' };
@@ -99,14 +104,14 @@
   const main = paper('Resume', s.resume, 'main');
   main.append(make('span', 'paper-lines'));
   docs.append(main);
-  if (s.pivot) {
-    docs.append(make('p', 'docs-note', 'Changing fields, so also:'));
-    const fan = make('div', 'fan');
-    fan.append(paper('Resume', s.pivot, 'extra'), paper('Guide', s.guide, 'guide'));
-    docs.append(fan);
-  } else {
-    docs.append(make('p', 'docs-note', `Staying in the same field, so one sharp resume.`));
-  }
+  docs.append(make('p', 'docs-note', `Other directions that fit ${first(p)}:`));
+  const options = make('div', 'options');
+  options.append(make('span', 'opt picked', s.pivot), ...s.also.map((o) => make('span', 'opt', o)));
+  docs.append(options);
+  docs.append(make('p', 'docs-note', `${first(p)} picked ${s.picked}, and got these too:`));
+  const fan = make('div', 'fan');
+  fan.append(paper('Resume', s.pivot, 'extra'), paper('Guide', s.guide, 'guide'));
+  docs.append(fan);
 
   // 3: the search
   const search = el('search');
