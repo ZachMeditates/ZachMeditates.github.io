@@ -127,11 +127,30 @@
   });
   search.append(counts, make('p', 'search-sub', 'Set aside, with the reason:'), list);
 
-  // 4: the report
-  const img = el('shot');
-  img.src = `assets/report-${id}.webp`;
-  const best = p.worthIt[0];
-  img.alt = `${first(p)}'s report on a phone: the best match, ${best.role}, scored ${Number(best.score).toFixed(1)} out of 5, with pay, documents and the reasons it fits.`;
+  // 4: the report: the best match in full, the next two on a line each
+  const report = el('report');
+  report.replaceChildren();
+  const score = (n) => Number(n).toFixed(1);
+  const where = (j) => (j.remote && !/^remote/i.test(j.where) ? `Remote, ${j.where}` : j.where);
+  const [best, ...next] = p.worthIt;
+  const head = make('p', 'report-head', 'Worth applying to');
+  head.append(make('span', 'report-n', fmt(p.counts.worth)));
+  const card = make('div', 'keep');
+  const top = make('div', 'keep-top');
+  top.append(make('span', 'kt', best.role), make('span', 'ks', score(best.score)));
+  const extras = make('p', 'extras');
+  ['Custom resume', 'Cover letter', 'Interview prep'].forEach((t) => extras.append(make('span', null, t)));
+  card.append(top, make('p', 'kc', `${best.company} · ${where(best)}`),
+    make('p', 'kc', best.pay || 'Pay not published yet'), make('p', 'kr', best.why), extras);
+  const rest = make('ul', 'rest');
+  next.slice(0, 2).forEach((j) => {
+    const li = make('li');
+    const t = make('span', 'rt', j.role);
+    t.append(make('span', 'rc', j.company));
+    li.append(t, make('span', 'rs', score(j.score)));
+    rest.append(li);
+  });
+  report.append(head, card, rest, make('p', 'report-more', `and ${fmt(p.counts.worth - 3)} more, best first`));
 
   root.dataset.ready = '';
 

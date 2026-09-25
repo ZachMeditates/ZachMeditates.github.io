@@ -72,7 +72,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--green); outline
 .label span { color: var(--green); margin-right: 6px; }
 @media (min-width: 1000px) { .label { display: block; position: sticky; top: 92px; padding-top: .7em; } }
 .body { min-width: 0; }
-h2 { font-size: clamp(1.9rem, 3.8vw, 3rem); line-height: 1.08; }
+h2 { font-size: clamp(1.9rem, 3.8vw, 3rem); line-height: 1.08; text-wrap: balance; }
 
 /* §01 The idea */
 .hero h1 { font-size: clamp(2.3rem, 5.6vw, 4.6rem); line-height: 1.03; }
@@ -232,7 +232,8 @@ s { text-decoration: line-through; text-decoration-thickness: 1.5px; text-decora
 .signup { background: var(--tint); }
 .signup h2 { font-size: clamp(2.1rem, 4.6vw, 3.6rem); }
 .signup-sub { margin-top: 14px; font-size: 1.15rem; color: var(--text); }
-.fee { margin-top: 10px; font: 500 .82rem/1.4 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--green); }
+.fee { display: flex; align-items: center; gap: 10px; margin-top: 12px; font: 600 1.02rem/1.4 var(--sans); color: var(--ink); }
+.tick, .extras span::before { flex: none; display: inline-block; width: 7px; height: 13px; border: solid var(--green); border-width: 0 2.5px 2.5px 0; rotate: 45deg; translate: 0 -2px; }
 .su-form { display: grid; gap: 14px; margin-top: 26px; }
 @media (min-width: 760px) { .su-form { grid-template-columns: 1fr 1fr auto; align-items: end; } .su-note { grid-column: 1 / -1; } }
 .su-form label { display: grid; gap: 8px; font: 500 .78rem/1.3 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--soft); }
@@ -454,10 +455,23 @@ s { text-decoration: line-through; text-decoration-thickness: 1.5px; text-decora
 .search-sub { padding: 12px 4px 6px; font-size: .9rem; color: var(--soft); }
 #search .keep { margin-top: 2px; }
 
-/* 4: the report */
-.report-shot { display: grid; justify-items: center; }
-.report-shot .cap-line { justify-self: start; }
-.report-shot .phone { width: min(250px, 66vw); }
+/* 4: the report: the best match in full, then the next two */
+.report-head { display: flex; align-items: baseline; gap: 8px; padding: 0 4px 10px; font: 700 1.02rem/1.3 var(--sans); color: var(--ink); }
+.report-n { color: var(--green); font-variant-numeric: tabular-nums; }
+.report .keep { margin-top: 0; }
+.report .keep-top { flex-direction: column-reverse; align-items: flex-start; gap: 6px; }
+.report .ks { font-size: 1.35rem; }
+.extras { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); font-size: .9rem; font-weight: 600; color: var(--ink); }
+.extras span { display: inline-flex; align-items: center; gap: 9px; }
+.extras span::before { content: ''; width: 5px; height: 10px; border-width: 0 2px 2px 0; }
+.rest { list-style: none; padding: 0; margin-top: 8px; }
+.rest li { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 10px 4px; border-top: 1px solid var(--line); }
+.rest li:first-child { border-top: 0; }
+.rt { min-width: 0; font-weight: 600; font-size: .98rem; line-height: 1.3; color: var(--ink); }
+.rc { display: block; font-weight: 400; font-size: .86rem; color: var(--soft); }
+.rs { flex: none; font: 700 1.15rem/1 var(--sans); color: var(--green); }
+.rs::after { content: '/5'; font: 500 .72rem/1 var(--sans); color: var(--soft); margin-left: 2px; }
+.report-more { padding: 6px 4px 0; font-size: .9rem; color: var(--soft); }
 
 /* Switching person: the new story settles in */
 @media (prefers-reduced-motion: no-preference) {
@@ -488,10 +502,28 @@ s { text-decoration: line-through; text-decoration-thickness: 1.5px; text-decora
 :root[data-theme="retro"] .count.sent .n { color: #FFFF00; }
 :root[data-theme="retro"] .count .l { letter-spacing: 0; text-transform: none; font: 400 .95rem/1.3 var(--sans); color: #D0D0D0; }
 :root[data-theme="retro"] .search-sub, :root[data-theme="retro"] .docs-note { color: #FFFFFF; }
-:root[data-theme="retro"] .report-shot .cap-line { justify-self: center; }
+:root[data-theme="retro"] .report-head { justify-content: center; color: #FFFFFF; }
+:root[data-theme="retro"] .report .keep-top { align-items: center; }
+:root[data-theme="retro"] .fee { justify-content: center; }
+:root[data-theme="retro"] .report-n, :root[data-theme="retro"] .rs { color: #FFFF00; }
+:root[data-theme="retro"] .extras { justify-content: center; border-top: 1px solid #8A8AA0; color: #FFFFFF; }
+:root[data-theme="retro"] .tick, :root[data-theme="retro"] .extras span::before { border-color: #FFFF00; }
+:root[data-theme="retro"] .rest li { flex-direction: column; gap: 4px; border-top: 0; }
+:root[data-theme="retro"] .rt { color: #FFFFFF; }
+:root[data-theme="retro"] .rc, :root[data-theme="retro"] .rs::after, :root[data-theme="retro"] .report-more { color: #D0D0D0; }
 
 .fields { margin-top: clamp(32px, 5vw, 48px); font-size: clamp(1.1rem, 1.7vw, 1.3rem); color: var(--text); }
 .fields b { color: var(--ink); }
 html[data-person]:not([data-person="designer"]):not([data-ready]) .story, html[data-person]:not([data-person="designer"]):not([data-ready]) .fields { visibility: hidden; }
 :root[data-theme="retro"] .fields { color: #FFFFFF; }
 :root[data-theme="retro"] .fields b { color: #FFFF00; }
+
+/* Phones: more room for the words, and the set-aside rows stacked so titles never wrap under a reason */
+@media (max-width: 599px) {
+  .step { padding-left: 48px; }
+  .badge { width: 34px; height: 34px; font-size: .9rem; }
+  .flow::before, .flow::after { left: 16px; }
+  .nope li { flex-direction: column; align-items: flex-start; gap: 2px; }
+  .report .keep { padding: 14px 15px; }
+  :root[data-theme="retro"] .nope li { align-items: center; }
+}
