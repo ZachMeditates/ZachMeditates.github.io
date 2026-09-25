@@ -194,7 +194,16 @@ s { text-decoration: none; background: linear-gradient(var(--soft), var(--soft))
 .sort li.out.done .t s { background-size: 100% 1.5px; }
 @media (prefers-reduced-motion: reduce) { .sort .why, .sort .s, .sort li.out .t s { transition: none; } }
 
-/* §06 Sign up */
+/* §06 In their words */
+.quote-grid { display: grid; gap: 28px; }
+@media (min-width: 760px) { .quote-grid { grid-template-columns: 1fr 1fr; gap: 48px; } }
+.quote { margin: 0; }
+.quote blockquote { margin: 0; }
+.quote blockquote p { position: relative; padding-top: 38px; font: 600 clamp(1.3rem, 2.2vw, 1.6rem)/1.35 var(--sans); font-stretch: 104%; letter-spacing: -.015em; color: var(--ink); }
+.quote blockquote p::before { content: '\201C'; position: absolute; top: -6px; left: -3px; font: 800 4rem/1 var(--sans); color: var(--green); }
+.quote figcaption { margin-top: 14px; font: 500 .78rem/1.4 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--soft); }
+
+/* §07 Sign up */
 .signup { background: var(--tint); }
 .signup h2 { font-size: clamp(2.1rem, 4.6vw, 3.6rem); }
 .signup-sub { margin-top: 14px; font-size: 1.15rem; color: var(--text); }
@@ -329,3 +338,11 @@ s { text-decoration: none; background: linear-gradient(var(--soft), var(--soft))
   :root[data-theme="retro"] .figures { align-items: center; }
 }
 :root[data-theme="retro"] .fee { font: italic 700 1.05rem/1.4 var(--sans); letter-spacing: 0; text-transform: none; color: #FFFF00; }
+:root[data-theme="retro"] .quote blockquote p { font: italic 700 1.35rem/1.4 var(--sans); letter-spacing: 0; color: #FFFF00; padding-top: 0; }
+:root[data-theme="retro"] .quote blockquote p::before { content: none; }
+:root[data-theme="retro"] .quote blockquote p::after { content: none; }
+:root[data-theme="retro"] .quote figcaption { font: 400 1rem/1.4 var(--sans); letter-spacing: 0; text-transform: none; color: #FFFFFF; }
+:root[data-theme="retro"] .quote blockquote p { quotes: "\201C" "\201D"; }
+:root[data-theme="retro"] .quote blockquote p { text-align: center; }
+.draft-banner { position: relative; z-index: 11; padding: 10px var(--gutter); background: #7A1F12; color: #FFFFFF; font: 500 .95rem/1.4 var(--sans); text-align: center; }
+.draft-banner b { font-weight: 800; }
