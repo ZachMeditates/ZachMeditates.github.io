@@ -251,7 +251,8 @@ s { text-decoration: line-through; text-decoration-thickness: 1.5px; text-decora
 /* Footer */
 .foot { border-top: 1px solid var(--line); }
 .foot-in { padding-block: 32px 48px; font-size: .98rem; color: var(--soft); }
-.foot b { color: var(--ink); font-weight: 600; }
+.foot a { color: var(--ink); font-weight: 600; text-decoration: underline; text-decoration-color: var(--green); text-underline-offset: 4px; text-decoration-thickness: 2px; }
+.foot a:hover { color: var(--green); }
 
 .retro-only { display: none; }
 
