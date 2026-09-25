@@ -1,4 +1,18 @@
 (() => {
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  const root = document.documentElement;
+  const dark = () => root.dataset.theme === 'dark'
+    || (!root.dataset.theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  const label = () => btn.setAttribute('aria-label', dark() ? 'Switch to light mode' : 'Switch to dark mode');
+  label();
+  btn.addEventListener('click', () => {
+    root.dataset.theme = dark() ? 'light' : 'dark';
+    try { localStorage.setItem('theme', root.dataset.theme); } catch (e) { /* not kept */ }
+    label();
+  });
+})();
+(() => {
   const form = document.getElementById('su-form');
   if (!form) return;
   const note = document.getElementById('su-note');
