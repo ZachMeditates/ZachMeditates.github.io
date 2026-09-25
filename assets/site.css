@@ -406,24 +406,6 @@ s { text-decoration: line-through; text-decoration-thickness: 1.5px; text-decora
 @keyframes draw { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
 @keyframes pop { from { opacity: 0; scale: .6; } }
 
-/* Who to follow: pinned under the header while the steps scroll */
-.story { padding-block: 0; border-top: 0; }
-.picker-bar { position: sticky; top: 61px; z-index: 8; background: color-mix(in srgb, var(--paper) 90%, transparent); backdrop-filter: saturate(1.4) blur(12px); -webkit-backdrop-filter: saturate(1.4) blur(12px); border-block: 1px solid var(--line); }
-.picker { display: flex; align-items: center; gap: 8px 20px; padding-block: 10px; }
-.picker-q { flex: none; font: 500 .74rem/1.3 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--soft); }
-.people { display: flex; gap: 8px; flex-wrap: wrap; }
-.people button { display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 5px 16px 5px 5px; border: 1px solid var(--line-strong); border-radius: 999px; background: var(--paper); color: var(--ink); font: 600 .95rem/1 var(--sans); cursor: pointer; transition: border-color .2s ease, background .2s ease; }
-.people button:hover { border-color: var(--green); }
-.people button[aria-pressed="true"] { border-color: var(--ink); background: var(--tint); box-shadow: inset 0 0 0 1px var(--ink); }
-.avatar { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 999px; color: #FFFFFF; font: 700 .78rem/1 var(--mono); }
-.who-role { font-weight: 400; color: var(--soft); margin-left: 5px; }
-@media (max-width: 899px) { .picker-q { display: none; } .who-role { display: none; } }
-@media (max-width: 559px) {
-  .picker { padding-block: 8px; }
-  .people { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; width: 100%; }
-  .people button { flex-direction: column; gap: 4px; padding: 6px 2px; border-radius: 12px; font-size: .82rem; min-height: 64px; }
-}
-
 /* The four steps, on a line that fills as you read */
 .flow { list-style: none; padding: 0; margin: 0; position: relative; }
 .flow::before { content: ''; position: absolute; left: 19px; top: 64px; bottom: 64px; width: 2px; background: var(--line); }
@@ -433,7 +415,7 @@ s { text-decoration: line-through; text-decoration-thickness: 1.5px; text-decora
   }
 }
 @keyframes fill { from { scale: 1 0; } to { scale: 1 1; } }
-.step { position: relative; display: grid; gap: 24px; padding: clamp(48px, 7vw, 88px) 0 clamp(48px, 7vw, 88px) 60px; scroll-margin-top: 130px; }
+.step { position: relative; display: grid; gap: 24px; padding: clamp(48px, 7vw, 88px) 0 clamp(48px, 7vw, 88px) 60px; scroll-margin-top: 70px; }
 @media (min-width: 900px) { .step { grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); gap: 56px; align-items: center; } }
 .badge { position: absolute; left: 0; top: clamp(48px, 7vw, 88px); z-index: 1; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 999px; background: var(--paper); border: 2px solid var(--green); color: var(--green); font: 700 1rem/1 var(--mono); }
 @media (min-width: 900px) { .badge { top: 50%; translate: 0 -50%; } }
@@ -487,13 +469,6 @@ s { text-decoration: line-through; text-decoration-thickness: 1.5px; text-decora
 :root[data-theme="retro"] .path li:last-child .stop { background: #FFFF00; color: #000000; }
 :root[data-theme="retro"] .stop-n { color: #FF3333; font: 700 1rem/1 var(--sans); }
 :root[data-theme="retro"] .stop-t { color: #FFFFFF; }
-:root[data-theme="retro"] .picker-bar { background: #000000; backdrop-filter: none; -webkit-backdrop-filter: none; border-block: 2px groove #8A8AA0; }
-:root[data-theme="retro"] .picker { justify-content: center; }
-:root[data-theme="retro"] .picker-q { color: #FFFF00; letter-spacing: 0; text-transform: none; font: 700 1rem/1.3 var(--sans); }
-:root[data-theme="retro"] .people button { border-radius: 0; border: 2px outset #FFFFFF; background: #C0C0C0; color: #000000; font-family: var(--sans); box-shadow: none; }
-:root[data-theme="retro"] .people button[aria-pressed="true"] { border-style: inset; background: #A8A8A8; }
-:root[data-theme="retro"] .avatar { border-radius: 0; }
-:root[data-theme="retro"] .who-role { color: #303030; }
 :root[data-theme="retro"] .flow::before, :root[data-theme="retro"] .flow::after { display: none; }
 :root[data-theme="retro"] .step { display: block; padding-left: 0; }
 :root[data-theme="retro"] .step + .step { border-top: 2px groove #8A8AA0; }
@@ -513,3 +488,9 @@ s { text-decoration: line-through; text-decoration-thickness: 1.5px; text-decora
 :root[data-theme="retro"] .count .l { letter-spacing: 0; text-transform: none; font: 400 .95rem/1.3 var(--sans); color: #D0D0D0; }
 :root[data-theme="retro"] .search-sub, :root[data-theme="retro"] .docs-note { color: #FFFFFF; }
 :root[data-theme="retro"] .report-shot .cap-line { justify-self: center; }
+
+.fields { margin-top: clamp(32px, 5vw, 48px); font-size: clamp(1.1rem, 1.7vw, 1.3rem); color: var(--text); }
+.fields b { color: var(--ink); }
+html[data-person]:not([data-person="designer"]):not([data-ready]) .story, html[data-person]:not([data-person="designer"]):not([data-ready]) .fields { visibility: hidden; }
+:root[data-theme="retro"] .fields { color: #FFFFFF; }
+:root[data-theme="retro"] .fields b { color: #FFFF00; }

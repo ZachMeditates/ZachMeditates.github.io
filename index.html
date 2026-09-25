@@ -6,7 +6,7 @@
 <title>Good Report</title>
 <meta name="description" content="Jobs that fit who you are, not just your job title. Good Report reads thousands of job postings against you and hands back the few worth applying to, each with a reason why.">
 <meta name="theme-color" content="#FFFFFF">
-<script>try{var t=localStorage.getItem('theme');if(t==='dark'||t==='retro')document.documentElement.dataset.theme=t;}catch(e){}</script>
+<script>try{var t=localStorage.getItem('theme');if(t==='dark'||t==='retro')document.documentElement.dataset.theme=t;var P=['designer','nurse','qa','sales'],n=parseInt(localStorage.getItem('visit')||'0',10)||0;document.documentElement.dataset.person=P[n%4];localStorage.setItem('visit',String(n+1));}catch(e){}</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F6B45'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Arial,sans-serif' font-weight='800' font-size='36' fill='%23FFFFFF'%3EG%3C/text%3E%3C/svg%3E">
 <meta property="og:title" content="Good Report">
 <meta property="og:description" content="Jobs that fit who you are, not just your job title. Thousands of postings read against you; the few worth your time handed back with a reason why.">
@@ -37,65 +37,60 @@
   <section class="sec hero" aria-labelledby="headline">
     <div class="wrap">
       <h1 id="headline">Jobs that fit <em>who you are</em>, not just your job title.</h1>
-      <p class="lead">Tell us what you want. We fix your resume, read thousands of job postings for you, and send you only the ones worth applying to.</p>
+      <p class="lead">Tell us what you want. We fix your resume, search thousands of job postings for you, and send you only the ones worth applying to.</p>
       <ol class="path" aria-label="How it works, in four steps: talk, resume, search, report">
         <li><span class="stop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5h16v10H10l-4.5 3.5v-3.5H4z"/></svg></span><span class="stop-n">1</span><span class="stop-t">We talk</span></li>
         <li><span class="stop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7.5L18 6.5V21H7z"/><path d="M14.5 3v3.5H18M9.5 11h6M9.5 14.5h6M9.5 18h4"/></svg></span><span class="stop-n">2</span><span class="stop-t">Your resume</span></li>
         <li><span class="stop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></svg></span><span class="stop-n">3</span><span class="stop-t">We search</span></li>
         <li><span class="stop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14v16H5z"/><path d="M8.5 12.5l2.5 2.5 4.5-5.5"/></svg></span><span class="stop-n">4</span><span class="stop-t">Your report</span></li>
       </ol>
+      <p class="fields">It works in any field. Here&rsquo;s how it went for <b data-first>Gabe</b>, <span data-role>a product designer</span>.</p>
     </div>
   </section>
 
-  <section class="sec story" id="how" aria-labelledby="how-h">
-    <div class="picker-bar">
-      <div class="wrap picker">
-        <p class="picker-q" id="how-h">Follow one person through it</p>
-        <div class="people" id="people" role="group" aria-label="Whose story to follow"></div>
-      </div>
-    </div>
+  <section class="sec story" id="how" aria-label="How it works">
     <div class="wrap">
       <ol class="flow">
         <li class="step" id="step-1">
           <span class="badge" aria-hidden="true">1</span>
           <div class="step-text">
             <h2>We get to know you</h2>
-            <p>Send us your resume, then we talk: on a call, a video chat or by email, whichever suits you. What do you want? What do you need? What&rsquo;s a deal breaker?</p>
+            <p>Send us your resume. Then we talk, by call, video or email, about what you want next.</p>
           </div>
           <figure class="step-visual">
             <figcaption class="cap-line">What <span data-first>Gabe</span> told us</figcaption>
-            <ol class="chat" id="talk" aria-live="polite"><li class="bubble us">What do you want?</li><li class="bubble them"><span class="from">Gabe</span>Product design, working from home.</li><li class="bubble us">What do you need?</li><li class="bubble them"><span class="from">Gabe</span>At least $85,000.</li><li class="bubble us">Must-haves?</li><li class="bubble them"><span class="from">Gabe</span>A real design team to work with.</li><li class="bubble us">Deal breakers?</li><li class="bubble them"><span class="from">Gabe</span>Five days a week in an office.</li></ol>
+            <ol class="chat" id="talk" aria-live="polite"><li class="bubble us">What do you want?</li><li class="bubble them"><span class="from">Gabe</span>Product design, working from home.</li><li class="bubble us">What do you need?</li><li class="bubble them"><span class="from">Gabe</span>At least $85,000.</li><li class="bubble us">Deal breakers?</li><li class="bubble them"><span class="from">Gabe</span>Five days a week in an office.</li></ol>
           </figure>
         </li>
         <li class="step" id="step-2">
           <span class="badge" aria-hidden="true">2</span>
           <div class="step-text">
             <h2>We fix your resume</h2>
-            <p>Rewritten to read well to people and to the software that sorts applications. Every line true.</p>
-            <p><b>Changing fields?</b> You also get a resume for each new direction your experience reaches, and a guide to making the move and what to learn.</p>
+            <p>We rewrite it to read well to people and to hiring software. Every line true.</p>
+            <p><b>Changing fields?</b> You also get a resume for the new direction, and a guide to making the move.</p>
           </div>
           <figure class="step-visual">
             <figcaption class="cap-line"><span data-first>Gabe</span>&rsquo;s documents</figcaption>
-            <div class="docs" id="docs" aria-live="polite"><div class="paper main"><span class="paper-k">Resume</span><span class="paper-t">Product Designer</span><span class="paper-lines"></span></div><p class="docs-note">Changing fields, so also:</p><div class="fan"><div class="paper extra"><span class="paper-k">Resume</span><span class="paper-t">Design Operations</span></div><div class="paper extra"><span class="paper-k">Resume</span><span class="paper-t">Product Owner</span></div><div class="paper extra"><span class="paper-k">Resume</span><span class="paper-t">Learning Design</span></div><div class="paper guide"><span class="paper-k">Guide</span><span class="paper-t">Moving into design operations, and what to learn first</span></div></div></div>
+            <div class="docs" id="docs" aria-live="polite"><div class="paper main"><span class="paper-k">Resume</span><span class="paper-t">Product Designer</span><span class="paper-lines"></span></div><p class="docs-note">Changing fields, so also:</p><div class="fan"><div class="paper extra"><span class="paper-k">Resume</span><span class="paper-t">Design Operations</span></div><div class="paper guide"><span class="paper-k">Guide</span><span class="paper-t">Moving into design operations</span></div></div></div>
           </figure>
         </li>
         <li class="step" id="step-3">
           <span class="badge" aria-hidden="true">3</span>
           <div class="step-text">
-            <h2>We search, every week or month</h2>
-            <p>We scan employers&rsquo; own job sites, read every posting against what you told us, and score the ones that fit out of five. Anything in doubt is set aside, with the reason.</p>
+            <h2>We search for you</h2>
+            <p>Every week or month, we read new job postings against what you told us, and set aside the ones that don&rsquo;t fit.</p>
           </div>
           <figure class="step-visual">
             <figcaption class="cap-line"><span data-first>Gabe</span>&rsquo;s last three weeks</figcaption>
-            <div class="search" id="search" aria-live="polite"><div class="counts"><div class="count found"><p class="n" data-to="9106">9,106</p><p class="l">postings found</p></div><div class="count read"><p class="n" data-to="330">330</p><p class="l">read closely</p></div><div class="count sent"><p class="n" data-to="41">41</p><p class="l">sent to Gabe</p></div></div><p class="search-sub">Set aside, with the reason:</p><ul class="nope"><li><s>Staff Product Designer</s><span>Missing a must-have</span></li><li><s>Brand Designer</s><span>Too far</span></li><li><s>Senior Instructional Designer</s><span>Closed</span></li></ul><p class="search-sub">Best match, sent to Gabe:</p><div class="keep"><p class="keep-top"><span class="kt">Senior Product Designer</span><span class="ks">4.5</span></p><p class="kc">Fernway Software · from home</p><p class="kr">Remote senior design work for a software company that wants someone who has already run a design system, which you have.</p></div></div>
+            <div class="search" id="search" aria-live="polite"><div class="counts"><div class="count found"><p class="n" data-to="9106">9,106</p><p class="l">postings found</p></div><div class="count read"><p class="n" data-to="330">330</p><p class="l">read closely</p></div><div class="count sent"><p class="n" data-to="41">41</p><p class="l">sent to Gabe</p></div></div><p class="search-sub">Set aside, with the reason:</p><ul class="nope"><li><s>Staff Product Designer</s><span>Missing a must-have</span></li><li><s>Brand Designer</s><span>Too far</span></li><li><s>Senior Instructional Designer</s><span>Closed</span></li></ul></div>
           </figure>
         </li>
         <li class="step" id="step-4">
           <span class="badge" aria-hidden="true">4</span>
           <div class="step-text">
             <h2>You get your <em>good report</em></h2>
-            <p>Everything lands on your own private page: each match, its score, and why it fits. For the best ones you also get a custom resume, cover letter and interview prep.</p>
-            <p><b>You apply, in your own name.</b> We never send anything for you.</p>
+            <p>The good matches land on your own private page, each scored out of five with the reason why. The best come with a custom resume, cover letter and interview prep.</p>
+            <p><b>You apply yourself.</b> We never send anything for you.</p>
             <a class="more" href="#signup">Start with a conversation <span aria-hidden="true">&rarr;</span></a>
           </div>
           <figure class="step-visual report-shot">
