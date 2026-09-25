@@ -113,7 +113,41 @@ s { text-decoration: none; background: linear-gradient(var(--soft), var(--soft))
 @keyframes rowin { from { opacity: 0; translate: 0 10px; } }
 @keyframes strike { from { background-size: 0% 1.5px; } }
 
-/* §02 The numbers */
+/* The journey, previewed under the headline */
+.hero .lead { margin-top: 20px; }
+.journey { list-style: none; padding: 0; margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+@media (min-width: 900px) { .journey { grid-template-columns: repeat(4, 1fr); } }
+.journey a { display: flex; align-items: center; gap: 12px; min-height: 60px; height: 100%; padding: 12px 14px; border: 1px solid var(--line-strong); border-radius: 12px; background: var(--paper); color: var(--ink); font: 600 1rem/1.25 var(--sans); text-decoration: none; transition: border-color .2s ease; }
+.journey a:hover { border-color: var(--green); }
+.journey span { flex: none; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 999px; background: var(--green); color: var(--on-green); font: 700 .85rem/1 var(--mono); }
+
+/* How it works: four steps, each with its picture */
+.flow { list-style: none; padding: 0; margin-top: 12px; display: grid; }
+.step { display: grid; gap: 24px; padding-block: clamp(32px, 5vw, 56px); border-top: 1px solid var(--line); scroll-margin-top: 0; }
+.step:first-child { border-top: 0; padding-top: 20px; }
+@media (min-width: 900px) { .step { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: start; } }
+.step-n { font: 500 .78rem/1.4 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--green); }
+.step h3 { font-size: clamp(1.5rem, 2.6vw, 2rem); line-height: 1.15; margin: 6px 0 12px; }
+.step-text p + p { margin-top: 12px; }
+.step-text b { color: var(--ink); }
+.step-text .more { margin-top: 20px; }
+.asks { margin: 0; background: var(--tint); border-radius: 18px; padding: 10px 18px; }
+.asks div { display: grid; grid-template-columns: 8.2rem minmax(0, 1fr); gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); }
+.asks div:first-child { border-top: 0; }
+.asks dt { font: 500 .74rem/1.6 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--soft); }
+.asks dd { margin: 0; font-weight: 600; color: var(--ink); }
+@media (max-width: 559px) { .asks div { grid-template-columns: 1fr; gap: 2px; } }
+.docs { list-style: none; margin: 0; padding: 16px; background: var(--tint); border-radius: 18px; display: grid; gap: 10px; }
+.doc { display: grid; gap: 2px; padding: 12px 14px; background: var(--paper); border: 1px solid var(--line); border-radius: 12px; font-weight: 600; color: var(--ink); }
+.doc.extra { border-style: dashed; border-color: var(--line-strong); }
+.doc-k { font: 500 .72rem/1.4 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--soft); }
+.doc-note { padding: 6px 4px 0; font-size: .92rem; color: var(--soft); }
+.step .phone-wrap { justify-self: center; }
+.legend { list-style: none; padding: 0; margin-top: 18px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; font-size: .95rem; color: var(--soft); }
+.legend li { display: flex; align-items: center; gap: 8px; }
+.legend .pin { translate: none; width: 24px; height: 24px; font-size: .75rem; }
+
+/* §03 The numbers */
 .proof { background: var(--tint); }
 .figures { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px 36px; }
 .fig { display: grid; gap: 8px; }
@@ -136,7 +170,7 @@ s { text-decoration: none; background: linear-gradient(var(--soft), var(--soft))
 .intake { margin-top: 18px; font-size: clamp(1.1rem, 1.6vw, 1.25rem); line-height: 1.55; color: var(--text); padding-left: 18px; border-left: 3px solid var(--green); }
 .after-steps { margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; color: var(--soft); }
 
-/* §04 Your report */
+/* The phone */
 .report-grid { display: grid; gap: 36px; }
 @media (min-width: 900px) { .report-grid { grid-template-columns: minmax(0, 1fr) 236px; align-items: center; gap: 72px; } }
 .callouts { list-style: none; padding: 0; display: grid; gap: 18px; margin-top: 26px; }
@@ -331,3 +365,21 @@ s { text-decoration: none; background: linear-gradient(var(--soft), var(--soft))
 .draft-banner { position: relative; z-index: 11; padding: 10px var(--gutter); background: #7A1F12; color: #FFFFFF; font: 500 .95rem/1.4 var(--sans); text-align: center; }
 .draft-banner b { font-weight: 800; }
 :root[data-theme="retro"] .figures-say { color: #FFFFFF; }
+
+/* The story, in the 90s */
+:root[data-theme="retro"] .journey { grid-template-columns: 1fr; justify-items: center; gap: 4px; }
+:root[data-theme="retro"] .journey a { border: 0; background: transparent; color: #99CCFF; text-decoration: underline; font: 400 1.1rem/1.3 var(--sans); min-height: 44px; }
+:root[data-theme="retro"] .journey span { background: transparent; color: #FF3333; font: 700 1.1rem/1 var(--sans); width: auto; height: auto; }
+:root[data-theme="retro"] .step { display: block; border-top: 0; }
+:root[data-theme="retro"] .step + .step { border-top: 2px groove #8A8AA0; }
+:root[data-theme="retro"] .step-visual { margin-top: 22px; }
+:root[data-theme="retro"] .step-n { color: #FF3333; letter-spacing: 0; text-transform: none; font: 700 1.1rem/1.4 var(--sans); }
+:root[data-theme="retro"] .step-text b { color: #FFFF00; }
+:root[data-theme="retro"] .asks, :root[data-theme="retro"] .docs { background: transparent; border: 3px double #FFFF00; border-radius: 0; }
+:root[data-theme="retro"] .asks div { grid-template-columns: 1fr; gap: 0; justify-items: center; }
+:root[data-theme="retro"] .asks dt, :root[data-theme="retro"] .doc-k { font: 700 1rem/1.4 var(--sans); letter-spacing: 0; text-transform: none; color: #FFFF00; }
+:root[data-theme="retro"] .asks dd, :root[data-theme="retro"] .doc { color: #FFFFFF; }
+:root[data-theme="retro"] .doc { background: transparent; border: 1px solid #8A8AA0; border-radius: 0; }
+:root[data-theme="retro"] .doc.extra { border-style: dashed; }
+:root[data-theme="retro"] .doc-note { color: #D0D0D0; }
+:root[data-theme="retro"] .legend { color: #FFFFFF; }
