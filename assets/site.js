@@ -1,16 +1,25 @@
 (() => {
-  const btn = document.getElementById('theme-toggle');
-  if (!btn) return;
   const root = document.documentElement;
-  const dark = () => root.dataset.theme === 'dark'
-    || (!root.dataset.theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
-  const label = () => btn.setAttribute('aria-label', dark() ? 'Switch to light mode' : 'Switch to dark mode');
-  label();
-  btn.addEventListener('click', () => {
-    root.dataset.theme = dark() ? 'light' : 'dark';
-    try { localStorage.setItem('theme', root.dataset.theme); } catch (e) { /* not kept */ }
-    label();
-  });
+  const THEMES = ['light', 'dark', 'retro'];
+  const NAMES = { light: 'light', dark: 'dark', retro: '1997' };
+  const btn = document.getElementById('theme-toggle');
+  const picks = [...document.querySelectorAll('[data-theme-pick]')];
+  const current = () => root.dataset.theme
+    || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  const show = () => {
+    const now = current();
+    const next = THEMES[(THEMES.indexOf(now) + 1) % THEMES.length];
+    if (btn) btn.setAttribute('aria-label', `Theme: ${NAMES[now]}. Switch to ${NAMES[next]}.`);
+    picks.forEach((p) => p.setAttribute('aria-pressed', String(p.dataset.themePick === now)));
+  };
+  const set = (t) => {
+    root.dataset.theme = t;
+    try { localStorage.setItem('theme', t); } catch (e) { /* not kept */ }
+    show();
+  };
+  show();
+  if (btn) btn.addEventListener('click', () => set(THEMES[(THEMES.indexOf(current()) + 1) % THEMES.length]));
+  picks.forEach((p) => p.addEventListener('click', () => set(p.dataset.themePick)));
 })();
 (() => {
   const form = document.getElementById('su-form');

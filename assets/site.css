@@ -65,7 +65,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--green); outline
 .theme { display: inline-grid; place-items: center; width: 44px; height: 44px; margin-right: -10px; border: 0; border-radius: 999px; background: transparent; color: var(--text); cursor: pointer; }
 .theme:hover { background: var(--tint); color: var(--ink); }
 .theme svg { width: 20px; height: 20px; }
-.theme .moon { display: none; }
+.theme .moon, .theme .star { display: none; }
+:root[data-theme="retro"] .theme .sun, :root[data-theme="retro"] .theme .moon { display: none; }
+:root[data-theme="retro"] .theme .star { display: block; }
 :root[data-theme="dark"] .theme .sun { display: none; }
 :root[data-theme="dark"] .theme .moon { display: block; }
 @media (prefers-color-scheme: dark) {
@@ -140,6 +142,9 @@ s { text-decoration: none; background: linear-gradient(var(--soft), var(--soft))
 .stepper h3 { font-size: 1.3rem; line-height: 1.25; margin-bottom: 8px; }
 .stepper p { color: var(--text); }
 
+.intake { margin-top: 18px; font-size: clamp(1.1rem, 1.6vw, 1.25rem); line-height: 1.55; color: var(--text); padding-left: 18px; border-left: 3px solid var(--green); }
+.after-steps { margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; color: var(--soft); }
+
 /* §04 Your report */
 .report-grid { display: grid; gap: 36px; }
 @media (min-width: 900px) { .report-grid { grid-template-columns: minmax(0, 1fr) 236px; align-items: center; gap: 72px; } }
@@ -213,6 +218,12 @@ s { text-decoration: none; background: linear-gradient(var(--soft), var(--soft))
 .foot-in { padding-block: 32px 48px; font-size: .98rem; color: var(--soft); }
 .foot b { color: var(--ink); font-weight: 600; }
 
+.themes { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; margin-top: 14px; }
+.themes > span { font: 500 .72rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--soft); margin-right: 8px; }
+.themes button { min-height: 44px; padding: 0 14px; border: 1px solid var(--line-strong); border-radius: 999px; background: transparent; color: var(--text); font: 500 .92rem/1 var(--sans); cursor: pointer; }
+.themes button[aria-pressed="true"] { background: var(--green); border-color: var(--green); color: var(--on-green); }
+.retro-only { display: none; }
+
 /* Scroll-linked entrances, where the browser can do them from scroll alone.
    Everything is fully visible without them. */
 @media (prefers-reduced-motion: no-preference) {
@@ -225,3 +236,94 @@ s { text-decoration: none; background: linear-gradient(var(--soft), var(--soft))
   }
 }
 @keyframes rise { from { opacity: 0; translate: 0 24px; } }
+
+/* ── 1997 ────────────────────────────────────────────────────────────
+   Only when someone picks it. A hand-written homepage of the time: one
+   narrow column, everything centered, Times on a field of stars, a red
+   headline, yellow and white text, light blue links, grooved rules. */
+:root[data-theme="retro"] {
+  color-scheme: dark;
+  --paper: #000000; --tint: transparent; --ink: #FFFF00; --text: #FFFFFF; --soft: #D0D0D0;
+  --line: #555566; --line-strong: #8A8AA0; --green: #FFFF00; --on-green: #000000; --green-wash: #333300;
+  --shade: rgba(0, 0, 0, 0);
+  --sans: 'Times New Roman', Times, 'Liberation Serif', serif;
+  --mono: 'Times New Roman', Times, 'Liberation Serif', serif;
+}
+:root[data-theme="retro"] body { background: #000 url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22320%22%20height%3D%22320%22%3E%3Ccircle%20cx%3D%22245.4%22%20cy%3D%2275.3%22%20r%3D%220.6%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.6%22/%3E%3Ccircle%20cx%3D%22125.0%22%20cy%3D%22105.6%22%20r%3D%221.2%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.6%22/%3E%3Ccircle%20cx%3D%22277.6%22%20cy%3D%22129.4%22%20r%3D%221.2%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.6%22/%3E%3Ccircle%20cx%3D%22290.4%22%20cy%3D%22225.2%22%20r%3D%221%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.6%22/%3E%3Ccircle%20cx%3D%22226.8%22%20cy%3D%22106.3%22%20r%3D%221%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%221%22/%3E%3Ccircle%20cx%3D%22194.8%22%20cy%3D%2214.6%22%20r%3D%221.2%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.9%22/%3E%3Ccircle%20cx%3D%2267.0%22%20cy%3D%2274.7%22%20r%3D%221.2%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.45%22/%3E%3Ccircle%20cx%3D%22164.1%22%20cy%3D%22102.2%22%20r%3D%221%22%20fill%3D%22%23FF99CC%22%20opacity%3D%220.9%22/%3E%3Ccircle%20cx%3D%22204.0%22%20cy%3D%22281.3%22%20r%3D%220.5%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.6%22/%3E%3Ccircle%20cx%3D%22253.7%22%20cy%3D%222.5%22%20r%3D%221.5%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.75%22/%3E%3Ccircle%20cx%3D%22298.9%22%20cy%3D%22150.8%22%20r%3D%220.7%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%221%22/%3E%3Ccircle%20cx%3D%22121.6%22%20cy%3D%224.6%22%20r%3D%220.8%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.6%22/%3E%3Ccircle%20cx%3D%2273.6%22%20cy%3D%22109.5%22%20r%3D%220.7%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.45%22/%3E%3Ccircle%20cx%3D%22152.2%22%20cy%3D%22309.6%22%20r%3D%220.6%22%20fill%3D%22%2399CCFF%22%20opacity%3D%220.75%22/%3E%3Ccircle%20cx%3D%22241.1%22%20cy%3D%22237.0%22%20r%3D%220.8%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.75%22/%3E%3Ccircle%20cx%3D%22244.5%22%20cy%3D%2286.4%22%20r%3D%221.2%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.6%22/%3E%3Ccircle%20cx%3D%22314.6%22%20cy%3D%2291.3%22%20r%3D%221%22%20fill%3D%22%23FF99CC%22%20opacity%3D%220.45%22/%3E%3Ccircle%20cx%3D%22298.3%22%20cy%3D%22239.7%22%20r%3D%221%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.6%22/%3E%3Ccircle%20cx%3D%2229.9%22%20cy%3D%22284.4%22%20r%3D%221.2%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.45%22/%3E%3Ccircle%20cx%3D%22105.6%22%20cy%3D%22157.0%22%20r%3D%220.8%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.6%22/%3E%3Ccircle%20cx%3D%2231.3%22%20cy%3D%22177.1%22%20r%3D%220.6%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.9%22/%3E%3Ccircle%20cx%3D%22317.4%22%20cy%3D%22311.0%22%20r%3D%221.5%22%20fill%3D%22%23FFFF99%22%20opacity%3D%220.9%22/%3E%3Ccircle%20cx%3D%2287.7%22%20cy%3D%22105.8%22%20r%3D%221.5%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.6%22/%3E%3Ccircle%20cx%3D%22280.4%22%20cy%3D%2251.4%22%20r%3D%220.6%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.45%22/%3E%3Ccircle%20cx%3D%22236.1%22%20cy%3D%224.0%22%20r%3D%220.6%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.45%22/%3E%3Ccircle%20cx%3D%22263.4%22%20cy%3D%2294.8%22%20r%3D%221.2%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%221%22/%3E%3Ccircle%20cx%3D%225.5%22%20cy%3D%2218.9%22%20r%3D%220.7%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%221%22/%3E%3Ccircle%20cx%3D%2279.2%22%20cy%3D%22179.2%22%20r%3D%220.7%22%20fill%3D%22%23FFFF99%22%20opacity%3D%220.9%22/%3E%3Ccircle%20cx%3D%2281.5%22%20cy%3D%2272.3%22%20r%3D%221%22%20fill%3D%22%23FF99CC%22%20opacity%3D%220.9%22/%3E%3Ccircle%20cx%3D%22277.2%22%20cy%3D%226.0%22%20r%3D%221%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.45%22/%3E%3Ccircle%20cx%3D%22283.6%22%20cy%3D%22187.7%22%20r%3D%220.5%22%20fill%3D%22%23FF99CC%22%20opacity%3D%221%22/%3E%3Ccircle%20cx%3D%22319.6%22%20cy%3D%2221.9%22%20r%3D%220.6%22%20fill%3D%22%23FF99CC%22%20opacity%3D%220.6%22/%3E%3Ccircle%20cx%3D%22313.1%22%20cy%3D%2282.9%22%20r%3D%221.2%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.6%22/%3E%3Ccircle%20cx%3D%22107.2%22%20cy%3D%22195.0%22%20r%3D%221%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.75%22/%3E%3Ccircle%20cx%3D%2252.2%22%20cy%3D%22106.5%22%20r%3D%221.5%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.9%22/%3E%3Ccircle%20cx%3D%22239.4%22%20cy%3D%2236.4%22%20r%3D%220.6%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.9%22/%3E%3Ccircle%20cx%3D%22162.6%22%20cy%3D%22286.4%22%20r%3D%221%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.9%22/%3E%3Ccircle%20cx%3D%22257.9%22%20cy%3D%223.1%22%20r%3D%221%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.45%22/%3E%3Ccircle%20cx%3D%22205.0%22%20cy%3D%22280.1%22%20r%3D%220.6%22%20fill%3D%22%23FFFF99%22%20opacity%3D%220.6%22/%3E%3Ccircle%20cx%3D%2240.0%22%20cy%3D%2256.8%22%20r%3D%221.5%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.9%22/%3E%3Ccircle%20cx%3D%22204.6%22%20cy%3D%22262.8%22%20r%3D%220.7%22%20fill%3D%22%23FFFF99%22%20opacity%3D%220.75%22/%3E%3Ccircle%20cx%3D%22190.7%22%20cy%3D%22160.2%22%20r%3D%220.6%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%221%22/%3E%3Ccircle%20cx%3D%22296.5%22%20cy%3D%22122.6%22%20r%3D%220.7%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%221%22/%3E%3Ccircle%20cx%3D%22171.3%22%20cy%3D%22302.4%22%20r%3D%221.2%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.75%22/%3E%3Ccircle%20cx%3D%22102.5%22%20cy%3D%22106.9%22%20r%3D%221.5%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%220.9%22/%3E%3Ccircle%20cx%3D%22307.0%22%20cy%3D%2210.6%22%20r%3D%221%22%20fill%3D%22%23FF99CC%22%20opacity%3D%220.6%22/%3E%3C/svg%3E") repeat; font-size: 20px; -webkit-font-smoothing: auto; }
+:root[data-theme="retro"] .wrap { max-width: 780px; }
+:root[data-theme="retro"] main, :root[data-theme="retro"] .foot { text-align: center; }
+:root[data-theme="retro"] h1, :root[data-theme="retro"] h2, :root[data-theme="retro"] h3 { font-stretch: normal; letter-spacing: 0; font-weight: 700; }
+:root[data-theme="retro"] h1 { color: #FF3333; font-size: clamp(2.3rem, 6vw, 3.6rem); line-height: 1.12; }
+:root[data-theme="retro"] h2 { color: #FFFF00; }
+:root[data-theme="retro"] h3 { color: #FFFFFF; text-decoration: underline; }
+:root[data-theme="retro"] em { color: #FFFF00; }
+:root[data-theme="retro"] a, :root[data-theme="retro"] .more, :root[data-theme="retro"] .nav a { color: #99CCFF; text-decoration: underline; border: 0; }
+:root[data-theme="retro"] a:visited { color: #CC99FF; }
+:root[data-theme="retro"] .more span { color: inherit; }
+
+/* One column, no margin, no panels: text on stars */
+:root[data-theme="retro"] .top { background: #000; backdrop-filter: none; -webkit-backdrop-filter: none; border-bottom: 2px groove #8A8AA0; }
+:root[data-theme="retro"] .mark { color: #FFFF00; }
+:root[data-theme="retro"] .mark i { color: #FF3333; }
+:root[data-theme="retro"] .theme { color: #FFFF00; }
+:root[data-theme="retro"] .sec { border-top: 0; padding-block: 36px; }
+:root[data-theme="retro"] .sec + .sec::before { content: ''; display: block; width: min(80%, 560px); margin: 0 auto 36px; border-top: 3px groove #8A8AA0; }
+:root[data-theme="retro"] .sec-in, :root[data-theme="retro"] .hero-row, :root[data-theme="retro"] .report-grid { display: block; }
+:root[data-theme="retro"] .label { display: none; }
+:root[data-theme="retro"] .hero-copy { justify-items: center; margin-bottom: 28px; }
+:root[data-theme="retro"] .more { justify-self: center; }
+:root[data-theme="retro"] .proof, :root[data-theme="retro"] .signup { background: transparent; }
+:root[data-theme="retro"] .figures { justify-content: center; }
+:root[data-theme="retro"] .was { color: #D0D0D0; }
+:root[data-theme="retro"] .now { color: #FFFF00; }
+:root[data-theme="retro"] .arrow { color: #FF3333; }
+:root[data-theme="retro"] .cap { font-size: 1rem; letter-spacing: 0; text-transform: none; color: #FFFFFF; }
+:root[data-theme="retro"] .ledger-head, :root[data-theme="retro"] .funnel p:not(.n), :root[data-theme="retro"] .su-form label, :root[data-theme="retro"] .themes > span { letter-spacing: 0; text-transform: none; font-size: 1rem; }
+:root[data-theme="retro"] .ledger, :root[data-theme="retro"] .sort { background: transparent; border-radius: 0; padding: 0; }
+:root[data-theme="retro"] .ledger-head { justify-content: center; gap: 24px; color: #FFFF00; }
+:root[data-theme="retro"] .nope li { justify-content: center; border-top: 0; }
+:root[data-theme="retro"] .nope li > span { color: #FF3333; }
+:root[data-theme="retro"] s { background-image: linear-gradient(#FF3333, #FF3333); }
+:root[data-theme="retro"] .keep, :root[data-theme="retro"] .sort li.in { background: transparent; border: 3px double #FFFF00; border-radius: 0; box-shadow: none; text-align: center; }
+:root[data-theme="retro"] .keep-top { justify-content: center; }
+:root[data-theme="retro"] .ks, :root[data-theme="retro"] .sort .s { color: #FFFF00; }
+:root[data-theme="retro"] .sort li { grid-template-columns: 1fr; justify-items: center; border-top: 0; }
+:root[data-theme="retro"] .sort .s { grid-column: 1; grid-row: auto; }
+:root[data-theme="retro"] .sort li.out .why { color: #D0D0D0; }
+:root[data-theme="retro"] .intake { border-left: 0; padding-left: 0; }
+:root[data-theme="retro"] .stepper { gap: 24px; }
+:root[data-theme="retro"] .stepper li { border-top: 0; padding-top: 0; }
+:root[data-theme="retro"] .stepper .num { position: static; margin: 0 auto 8px; border-radius: 0; border: 0; background: transparent; color: #FF3333; font: 700 1.6rem/1 var(--sans); width: auto; height: auto; }
+:root[data-theme="retro"] .stepper li:last-child .num { background: transparent; color: #FF3333; }
+:root[data-theme="retro"] .after-steps { justify-content: center; color: #FFFFFF; }
+:root[data-theme="retro"] .callouts { justify-items: center; }
+:root[data-theme="retro"] .callouts li { display: block; }
+:root[data-theme="retro"] .pin { border-radius: 0; background: transparent; color: #FF3333; font: 700 1.2rem/1 var(--sans); width: auto; height: auto; margin-right: 6px; }
+:root[data-theme="retro"] .on-phone { background: #FF3333; color: #FFFFFF; width: 26px; height: 26px; box-shadow: none; }
+:root[data-theme="retro"] .phone-wrap { margin: 28px auto 0; }
+:root[data-theme="retro"] .phone { border: 2px solid #8A8AA0; border-radius: 0; padding: 0; background: #000; box-shadow: none; }
+:root[data-theme="retro"] .phone img { border-radius: 0; }
+:root[data-theme="retro"] .who { justify-content: center; border-bottom: 0; }
+:root[data-theme="retro"] .who button { color: #99CCFF; text-decoration: underline; font-family: var(--sans); }
+:root[data-theme="retro"] .who button strong { color: inherit; }
+:root[data-theme="retro"] .who button[aria-pressed="true"] { color: #FFFF00; border-bottom-color: transparent; text-decoration: none; }
+:root[data-theme="retro"] .funnel div { border-top: 0; }
+:root[data-theme="retro"] .funnel .n { color: #FFFFFF; font-stretch: normal; }
+:root[data-theme="retro"] .funnel .n.hot { color: #FFFF00; }
+
+/* Plain grey form controls of the day */
+:root[data-theme="retro"] .btn, :root[data-theme="retro"] .themes button {
+  background: #C0C0C0; color: #000000; border: 2px outset #FFFFFF; border-radius: 0; font: 400 1rem/1 var(--sans); filter: none; min-height: 44px;
+}
+:root[data-theme="retro"] .btn:active, :root[data-theme="retro"] .themes button[aria-pressed="true"] { border-style: inset; background: #A8A8A8; color: #000000; }
+:root[data-theme="retro"] .su-form { justify-items: center; }
+:root[data-theme="retro"] .su-form label { color: #FFFFFF; justify-items: center; }
+:root[data-theme="retro"] .su-form input { border: 2px inset #FFFFFF; border-radius: 0; background: #FFFFFF; color: #000000; min-height: 44px; font: 400 1rem/1 var(--sans); }
+:root[data-theme="retro"] .themes { justify-content: center; }
+:root[data-theme="retro"] .stepper { grid-template-columns: 1fr; }
+:root[data-theme="retro"] .sort .t, :root[data-theme="retro"] .sort .co { justify-self: center; grid-column: 1; }
+@media (max-width: 559px) {
+  .figures { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .arrow { rotate: 90deg; padding-bottom: 0; margin-left: .3em; line-height: .8; }
+  :root[data-theme="retro"] .figures { align-items: center; }
+}

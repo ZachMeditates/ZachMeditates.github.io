@@ -7,7 +7,7 @@
 <meta name="description" content="Jobs that fit who you are, not just your job title. Good Report reads thousands of job postings against you and hands back the few worth applying to, each with a reason why.">
 <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0E1210" media="(prefers-color-scheme: dark)">
-<script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}</script>
+<script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark'||t==='retro')document.documentElement.dataset.theme=t;}catch(e){}</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F6B45'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Arial,sans-serif' font-weight='800' font-size='36' fill='%23FFFFFF'%3EG%3C/text%3E%3C/svg%3E">
 <meta property="og:title" content="Good Report">
 <meta property="og:description" content="Jobs that fit who you are, not just your job title. Thousands of postings read against you; the few worth your time handed back with a reason why.">
@@ -26,9 +26,10 @@
       <a class="wide" href="#how">How it works</a>
       <a href="#signup">Sign up</a>
     </nav>
-    <button type="button" class="theme" id="theme-toggle" aria-label="Switch between light and dark">
+    <button type="button" class="theme" id="theme-toggle" aria-label="Change the theme">
       <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
       <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
+      <svg class="star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.4l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
     </button>
   </div>
 </header>
@@ -82,12 +83,14 @@
     <div class="wrap sec-in">
       <p class="label"><span>&sect;03</span> How it works</p>
       <div class="body">
-        <h2 id="how-h">You tell us. We read. You choose.</h2>
+        <h2 id="how-h">We get to know you. Then we get to work.</h2>
+        <p class="intake">It starts with a short questionnaire and a conversation: the work you&rsquo;ve done, what you&rsquo;re good at, the pay you need, where and when you&rsquo;ll work, and anything you never want to do again. That becomes your criteria, and every job gets read against it.</p>
         <ol class="stepper">
-          <li><span class="num">1</span><h3>Tell us what you want</h3><p>The work you can do, the pay you need, where and when you&rsquo;ll work.</p></li>
-          <li><span class="num">2</span><h3>We read every posting</h3><p>Thousands of them, straight from employers&rsquo; own job sites. Anything in doubt is held back.</p></li>
-          <li><span class="num">3</span><h3>You get your good report</h3><p>The few worth your time, each scored out of five with a reason. You decide, and you apply.</p></li>
+          <li><span class="num">1</span><h3>We redo your resume</h3><p>Rebuilt to read well to people and to the software employers use to sort applications. Every line true.</p></li>
+          <li><span class="num">2</span><h3>We help you pivot, if you want</h3><p>Ready for a different field? We show you which directions your experience really reaches, and write a resume for each one.</p></li>
+          <li><span class="num">3</span><h3>We search every week</h3><p>New postings, read against your criteria. When a job scores 4 out of 5 or better, you get a custom resume, cover letter and interview guide for it.</p></li>
         </ol>
+        <p class="after-steps"><span>You apply, in your own name. We never send anything for you.</span> <a class="more" href="#signup">Start with a conversation <span aria-hidden="true">&rarr;</span></a></p>
       </div>
     </div>
   </section>
@@ -101,7 +104,7 @@
           <ol class="callouts">
             <li><span class="pin">1</span><p><b>A score out of five</b> for how well each job fits you.</p></li>
             <li><span class="pin">2</span><p><b>One plain reason why</b>, and what to watch out for.</p></li>
-            <li><span class="pin">3</span><p><b>A resume and cover letter</b> ready for the best ones. You send them yourself.</p></li>
+            <li><span class="pin">3</span><p><b>A custom resume, cover letter and interview guide</b> for every job that scores 4 or better. You send them yourself.</p></li>
           </ol>
         </div>
         <figure class="phone-wrap">
@@ -144,7 +147,7 @@
       <p class="label"><span>&sect;06</span> Sign up</p>
       <div class="body">
         <h2 id="signup-h">Want your own <em>good report</em>?</h2>
-        <p class="signup-sub">Leave your name and email. A real person writes back, not a mailing list.</p>
+        <p class="signup-sub">Leave your name and email. A real person writes back to set up your first conversation.</p>
         <form class="su-form" id="su-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
           <input type="hidden" name="access_key" id="su-key" value="70b801e8-94cb-49e4-8a72-6d396d2eef35">
           <input type="hidden" name="subject" value="New sign up from the Good Report site">
@@ -163,6 +166,12 @@
 <footer class="foot">
   <div class="wrap foot-in">
     <p>Made by <b>Zach Wallace</b>, USA, a software QA guru who got tired of watching good people stay in jobs they hate.</p>
+    <div class="themes" role="group" aria-label="Theme">
+      <span>Theme</span>
+      <button type="button" data-theme-pick="light">Light</button>
+      <button type="button" data-theme-pick="dark">Dark</button>
+      <button type="button" data-theme-pick="retro">1997</button>
+    </div>
   </div>
 </footer>
 
