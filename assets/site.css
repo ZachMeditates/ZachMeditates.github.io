@@ -529,11 +529,11 @@ html[data-person]:not([data-person="designer"]):not([data-ready]) .story, html[d
   :root[data-theme="retro"] .nope li { align-items: center; }
 }
 
-/* What it costs, and the questions people ask */
-.price-grid { display: grid; gap: 44px; }
-@media (min-width: 900px) { .price-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: start; } }
-.prices h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); }
-.price-list { list-style: none; margin-top: 18px; padding: 4px 20px; background: var(--tint); border-radius: 18px; }
+/* Questions, quietly under sign up: everything folded until someone asks */
+.faq-sec { padding-block: clamp(28px, 4vw, 44px); }
+.faq-sec h2 { font-size: 1.2rem; letter-spacing: -.01em; }
+.faq-body { padding: 0 0 18px; }
+.price-list { list-style: none; max-width: 640px; margin: 0; padding: 4px 20px; background: var(--tint); border-radius: 18px; }
 .price-list li { display: flex; justify-content: space-between; align-items: baseline; gap: 18px; padding: 14px 0; border-top: 1px solid var(--line); }
 .price-list li:first-child { border-top: 0; }
 .price-list b { display: block; font-size: 1.04rem; line-height: 1.35; color: var(--ink); }
@@ -544,18 +544,16 @@ html[data-person]:not([data-person="designer"]):not([data-ready]) .story, html[d
 .amt.free { color: var(--green); }
 .amt small { display: block; margin-top: 5px; font: 500 .78rem/1 var(--sans); letter-spacing: 0; color: var(--soft); }
 .price-note { margin-top: 12px; padding-inline: 4px; font-size: .95rem; color: var(--soft); }
-.faq { margin-top: 18px; border-top: 1px solid var(--line); }
+.faq { margin-top: 10px; border-top: 1px solid var(--line); }
 .faq details { border-bottom: 1px solid var(--line); }
-.faq summary { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 58px; padding: 12px 0; list-style: none; cursor: pointer; font: 600 1.05rem/1.35 var(--sans); color: var(--ink); }
+.faq summary { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 48px; padding: 10px 0; list-style: none; cursor: pointer; font: 500 1rem/1.35 var(--sans); color: var(--text); }
 .faq summary::-webkit-details-marker { display: none; }
 .faq summary::after { content: ''; flex: none; width: 9px; height: 9px; margin-right: 4px; border: solid var(--green); border-width: 0 2px 2px 0; rotate: 45deg; translate: 0 -3px; }
 @media (prefers-reduced-motion: no-preference) { .faq summary::after { transition: rotate .2s ease, translate .2s ease; } }
 .faq details[open] summary::after { rotate: 225deg; translate: 0 3px; }
 .faq summary:hover { color: var(--green); }
 .faq summary:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 4px; }
-.faq details p { padding: 0 32px 18px 0; font-size: 1rem; color: var(--text); }
-:root[data-theme="retro"] .price-grid { display: block; }
-:root[data-theme="retro"] .price-grid > div + div { margin-top: 36px; }
+.faq details > p { padding: 0 32px 16px 0; font-size: .98rem; color: var(--text); }
 :root[data-theme="retro"] .price-list { border: 3px double #FFFF00; border-radius: 0; text-align: left; }
 :root[data-theme="retro"] .price-list .then { text-align: center; color: #FF3333; }
 :root[data-theme="retro"] .amt { font-stretch: normal; color: #FFFFFF; }
