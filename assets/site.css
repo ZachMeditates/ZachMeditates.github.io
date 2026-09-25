@@ -233,6 +233,7 @@ s { text-decoration: line-through; text-decoration-thickness: 1.5px; text-decora
 .signup h2 { font-size: clamp(2.1rem, 4.6vw, 3.6rem); }
 .signup-sub { margin-top: 14px; font-size: 1.15rem; color: var(--text); }
 .fee { display: flex; align-items: center; gap: 10px; margin-top: 12px; font: 600 1.02rem/1.4 var(--sans); color: var(--ink); }
+.fee + .fee { margin-top: 6px; }
 .tick, .extras span::before { flex: none; display: inline-block; width: 7px; height: 13px; border: solid var(--green); border-width: 0 2.5px 2.5px 0; rotate: 45deg; translate: 0 -2px; }
 .su-form { display: grid; gap: 14px; margin-top: 26px; }
 @media (min-width: 760px) { .su-form { grid-template-columns: 1fr 1fr auto; align-items: end; } .su-note { grid-column: 1 / -1; } }
