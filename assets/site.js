@@ -1,7 +1,7 @@
 (() => {
   const root = document.documentElement;
   const THEMES = ['light', 'dark', 'retro'];
-  const NAMES = { light: 'light', dark: 'dark', retro: '1997' };
+  const NAMES = { light: 'light', dark: 'dark', retro: '90s' };
   const btn = document.getElementById('theme-toggle');
   const picks = [...document.querySelectorAll('[data-theme-pick]')];
   const current = () => root.dataset.theme
