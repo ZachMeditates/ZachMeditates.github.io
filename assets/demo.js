@@ -93,7 +93,6 @@
     btn.addEventListener('click', () => { current = p; show(p, true); });
     who.append(btn);
   }
-  el('demo-again').addEventListener('click', () => show(current, true));
 
   show(current, false);
   if ('IntersectionObserver' in window && !still()) {
