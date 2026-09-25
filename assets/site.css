@@ -22,14 +22,6 @@
   --mono: 'Plex Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
   --gutter: clamp(20px, 5vw, 56px);
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
-    --paper: #0E1210; --tint: #141C17; --ink: #F0F3F0; --text: #D6DCD7; --soft: #9AA49D;
-    --line: #232C26; --line-strong: #3A463F; --green: #7CC49A; --on-green: #0B1710; --green-wash: #1D3326;
-    --shade: rgba(0, 0, 0, .45);
-  }
-}
 :root[data-theme="dark"] {
   color-scheme: dark;
   --paper: #0E1210; --tint: #141C17; --ink: #F0F3F0; --text: #D6DCD7; --soft: #9AA49D;
@@ -70,10 +62,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--green); outline
 :root[data-theme="retro"] .theme .star { display: block; }
 :root[data-theme="dark"] .theme .sun { display: none; }
 :root[data-theme="dark"] .theme .moon { display: block; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .theme .sun { display: none; }
-  :root:not([data-theme="light"]) .theme .moon { display: block; }
-}
 
 /* Sections: a mark in the margin, the matter beside it */
 .sec { padding-block: clamp(36px, 5vw, 68px); border-top: 1px solid var(--line); }
@@ -228,10 +216,6 @@ s { text-decoration: none; background: linear-gradient(var(--soft), var(--soft))
 .foot-in { padding-block: 32px 48px; font-size: .98rem; color: var(--soft); }
 .foot b { color: var(--ink); font-weight: 600; }
 
-.themes { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; margin-top: 14px; }
-.themes > span { font: 500 .72rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--soft); margin-right: 8px; }
-.themes button { min-height: 44px; padding: 0 14px; border: 1px solid var(--line-strong); border-radius: 999px; background: transparent; color: var(--text); font: 500 .92rem/1 var(--sans); cursor: pointer; }
-.themes button[aria-pressed="true"] { background: var(--green); border-color: var(--green); color: var(--on-green); }
 .retro-only { display: none; }
 
 /* Scroll-linked entrances, where the browser can do them from scroll alone.
@@ -288,8 +272,7 @@ s { text-decoration: none; background: linear-gradient(var(--soft), var(--soft))
 :root[data-theme="retro"] .now { color: #FFFF00; }
 :root[data-theme="retro"] .arrow { color: #FF3333; }
 :root[data-theme="retro"] .cap { font-size: 1rem; letter-spacing: 0; text-transform: none; color: #FFFFFF; }
-:root[data-theme="retro"] .ledger-head, :root[data-theme="retro"] .funnel p:not(.n), :root[data-theme="retro"] .su-form label, :root[data-theme="retro"] .themes > span { letter-spacing: 0; text-transform: none; font-size: 1rem; }
-:root[data-theme="retro"] .ledger, :root[data-theme="retro"] .sort { background: transparent; border-radius: 0; padding: 0; }
+:root[data-theme="retro"] .ledger-head, :root[data-theme="retro"] .funnel p:not(.n), :root[data-theme="retro"] .su-form label, :root[data-theme="retro"] :root[data-theme="retro"] .ledger, :root[data-theme="retro"] .sort { background: transparent; border-radius: 0; padding: 0; }
 :root[data-theme="retro"] .ledger-head { justify-content: center; gap: 24px; color: #FFFF00; }
 :root[data-theme="retro"] .nope li { justify-content: center; border-top: 0; }
 :root[data-theme="retro"] .nope li > span { color: #FF3333; }
@@ -322,15 +305,12 @@ s { text-decoration: none; background: linear-gradient(var(--soft), var(--soft))
 :root[data-theme="retro"] .funnel .n.hot { color: #FFFF00; }
 
 /* Plain grey form controls of the day */
-:root[data-theme="retro"] .btn, :root[data-theme="retro"] .themes button {
-  background: #C0C0C0; color: #000000; border: 2px outset #FFFFFF; border-radius: 0; font: 400 1rem/1 var(--sans); filter: none; min-height: 44px;
+:root[data-theme="retro"] .btn, :root[data-theme="retro"]   background: #C0C0C0; color: #000000; border: 2px outset #FFFFFF; border-radius: 0; font: 400 1rem/1 var(--sans); filter: none; min-height: 44px;
 }
-:root[data-theme="retro"] .btn:active, :root[data-theme="retro"] .themes button[aria-pressed="true"] { border-style: inset; background: #A8A8A8; color: #000000; }
-:root[data-theme="retro"] .su-form { justify-items: center; }
+:root[data-theme="retro"] .btn:active, :root[data-theme="retro"] :root[data-theme="retro"] .su-form { justify-items: center; }
 :root[data-theme="retro"] .su-form label { color: #FFFFFF; justify-items: center; }
 :root[data-theme="retro"] .su-form input { border: 2px inset #FFFFFF; border-radius: 0; background: #FFFFFF; color: #000000; min-height: 44px; font: 400 1rem/1 var(--sans); }
-:root[data-theme="retro"] .themes { justify-content: center; }
-:root[data-theme="retro"] .stepper { grid-template-columns: 1fr; }
+:root[data-theme="retro"] :root[data-theme="retro"] .stepper { grid-template-columns: 1fr; }
 :root[data-theme="retro"] .sort .t, :root[data-theme="retro"] .sort .co { justify-self: center; grid-column: 1; }
 @media (max-width: 559px) {
   .figures { flex-direction: column; align-items: flex-start; gap: 6px; }

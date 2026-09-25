@@ -3,23 +3,17 @@
   const THEMES = ['light', 'dark', 'retro'];
   const NAMES = { light: 'light', dark: 'dark', retro: '90s' };
   const btn = document.getElementById('theme-toggle');
-  const picks = [...document.querySelectorAll('[data-theme-pick]')];
-  const current = () => root.dataset.theme
-    || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  const show = () => {
-    const now = current();
-    const next = THEMES[(THEMES.indexOf(now) + 1) % THEMES.length];
-    if (btn) btn.setAttribute('aria-label', `Theme: ${NAMES[now]}. Switch to ${NAMES[next]}.`);
-    picks.forEach((p) => p.setAttribute('aria-pressed', String(p.dataset.themePick === now)));
-  };
-  const set = (t) => {
-    root.dataset.theme = t;
+  if (!btn) return;
+  const current = () => root.dataset.theme || 'light';
+  const next = () => THEMES[(THEMES.indexOf(current()) + 1) % THEMES.length];
+  const label = () => btn.setAttribute('aria-label', `Theme: ${NAMES[current()]}. Switch to ${NAMES[next()]}.`);
+  label();
+  btn.addEventListener('click', () => {
+    const t = next();
+    if (t === 'light') delete root.dataset.theme; else root.dataset.theme = t;
     try { localStorage.setItem('theme', t); } catch (e) { /* not kept */ }
-    show();
-  };
-  show();
-  if (btn) btn.addEventListener('click', () => set(THEMES[(THEMES.indexOf(current()) + 1) % THEMES.length]));
-  picks.forEach((p) => p.addEventListener('click', () => set(p.dataset.themePick)));
+    label();
+  });
 })();
 (() => {
   const form = document.getElementById('su-form');
