@@ -12,6 +12,7 @@ This repo holds only the page. The people, companies and numbers in its example 
 - `assets/story.js`: picks a different example person on each visit and fills the four steps from the data in the page.
 - `assets/og.png`: the picture shown when the link is shared.
 - `assets/fonts/`: Archivo and IBM Plex Mono, both under the SIL Open Font License (license files alongside).
+- `portfolio/`: Zach's portfolio page, one card per project: the problem, what was done, and the result. Client names are left out on purpose.
 - `qr/`: where the printed QR code points. It forwards to the home page, so scans are counted on their own.
 
 ## Outside services
