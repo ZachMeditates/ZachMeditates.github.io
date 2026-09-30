@@ -564,6 +564,22 @@ html[data-person]:not([data-person="designer"]):not([data-ready]) .story, html[d
 .amt.free { color: var(--green); }
 .amt small { display: block; margin-top: 5px; font: 500 .78rem/1 var(--sans); letter-spacing: 0; color: var(--soft); }
 .price-note { margin-top: 12px; padding-inline: 4px; font-size: .95rem; color: var(--soft); }
+/* The nine answers fold under one banner.
+
+   They were nine open rows on a short page, which is a lot of reading to
+   scroll past for somebody who has already decided to book. Folded, the page
+   ends on the sign-up band and the answers are one click away for the person
+   who wants them. Nothing links into this section, so closing it strands no
+   anchor. */
+.faq-all > summary { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; min-height: 48px; padding: 6px 0; list-style: none; cursor: pointer; border-bottom: 1.5px solid var(--line-strong); }
+.faq-all > summary::-webkit-details-marker { display: none; }
+.faq-all > summary::after { content: ''; margin-left: auto; flex: none; width: 10px; height: 10px; border: solid var(--green); border-width: 0 2px 2px 0; rotate: 45deg; translate: 0 -3px; }
+@media (prefers-reduced-motion: no-preference) { .faq-all > summary::after { transition: rotate .2s ease, translate .2s ease; } }
+.faq-all[open] > summary::after { rotate: 225deg; translate: 0 3px; }
+.faq-all > summary h2 { margin: 0; }
+.faq-all-hint { font: 400 .95rem/1.4 var(--sans); color: var(--soft); }
+.faq-all > summary:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
+
 .faq { margin-top: 10px; border-top: 1px solid var(--line); }
 .faq details { border-bottom: 1px solid var(--line); }
 .faq summary { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 48px; padding: 10px 0; list-style: none; cursor: pointer; font: 500 1rem/1.35 var(--sans); color: var(--text); }
