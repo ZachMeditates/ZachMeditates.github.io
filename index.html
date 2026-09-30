@@ -131,10 +131,14 @@
     <div class="wrap sec-in">
       <div class="body">
         <h2 id="signup-h">Want your own <em>good report</em>?</h2>
-        <p class="signup-sub">Leave your name and email. A real person writes back to set up your first conversation.</p>
+        <p class="signup-sub">Pick a time that suits you. We talk for ten minutes: you say what work you are after, I say whether I can help.</p>
         <p class="fee"><span class="tick" aria-hidden="true"></span>Your first 10-minute call is free.</p>
         <p class="fee"><span class="tick" aria-hidden="true"></span>Your first report is $150.</p>
         <p class="fee"><span class="tick" aria-hidden="true"></span>Flat fees, never tied to getting hired.</p>
+
+        <p class="su-book"><a class="btn" href="https://calendly.com/goodreport/free-call" rel="noopener">Book a free 10-minute call <span aria-hidden="true">&rarr;</span></a></p>
+
+        <p class="su-or">Would rather not pick a time yet? Leave your name and email and a real person writes back.</p>
         <form class="su-form" id="su-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
           <input type="hidden" name="access_key" id="su-key" value="70b801e8-94cb-49e4-8a72-6d396d2eef35">
           <input type="hidden" name="subject" value="New sign up from the Good Report site">
@@ -142,7 +146,7 @@
           <input type="checkbox" name="botcheck" class="trap" tabindex="-1" autocomplete="off" aria-hidden="true">
           <label for="su-name">Name<input id="su-name" name="name" type="text" autocomplete="name" required maxlength="120"></label>
           <label for="su-email">Email<input id="su-email" name="email" type="email" autocomplete="email" required maxlength="200"></label>
-          <button type="submit" class="btn" id="su-send">Sign up <span aria-hidden="true">&rarr;</span></button>
+          <button type="submit" class="btn btn-quiet" id="su-send">Send it <span aria-hidden="true">&rarr;</span></button>
           <p class="su-note" id="su-note" role="status" aria-live="polite"></p>
         </form>
       </div>

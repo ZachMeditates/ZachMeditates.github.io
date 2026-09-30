@@ -17,7 +17,11 @@ This repo holds only the page. The people, companies and numbers in its example 
 
 ## Outside services
 
-- Sign-ups are sent by email through Web3Forms. The access key in the page is meant to be public.
+- The way in is a Calendly booking: **calendly.com/goodreport/free-call**, ten
+  minutes, free. It asks four questions at the booking so the call can start
+  somewhere useful rather than at "tell me about yourself".
+- Under it, for somebody not ready to pick a time, the old name-and-email form
+  still posts through Web3Forms. The access key in the page is meant to be public.
 - Visits are counted with Cloudflare Web Analytics, which uses no cookies.
 
 ## Running it

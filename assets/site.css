@@ -245,6 +245,18 @@ s { text-decoration: line-through; text-decoration-thickness: 1.5px; text-decora
 .btn span { transition: translate .2s ease; }
 .btn:hover { filter: brightness(1.08); }
 .btn:hover span { translate: 3px 0; }
+
+/* Booking is the way in now. The email form stays underneath for somebody not
+   ready to pick a time: quieter, but not folded away, because making them
+   click to reveal it defeats the point of a low-commitment path.
+
+   These sit after .btn deliberately. Written above it they lost on source
+   order and the quiet button came out the same solid green as the loud one. */
+.su-book { margin-top: 26px; }
+.su-or { margin-top: 30px; padding-top: 22px; border-top: 1.5px solid var(--line); font-size: 1rem; color: var(--soft); }
+a.btn { text-decoration: none; }
+.btn.btn-quiet { background: transparent; color: var(--ink); border: 1.5px solid var(--line-strong); }
+.btn.btn-quiet:hover { filter: none; background: var(--paper); border-color: var(--ink); }
 .btn[disabled] { opacity: .6; cursor: default; }
 .su-note { font-size: .95rem; color: var(--text); min-height: 1.4em; }
 .su-note.err { color: var(--ink); font-weight: 600; }
