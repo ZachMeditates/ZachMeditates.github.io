@@ -58,3 +58,26 @@
     }
   });
 })();
+
+(() => {
+  // The booking link, upgraded to an overlay.
+  //
+  // The anchor in the page is a real link to Calendly with target="_blank",
+  // and it stays that way. This only intercepts the click once Calendly's
+  // script has actually loaded and put its widget on the window. Blocked,
+  // slow, or offline, nothing here runs and the link books a call the plain
+  // way, which is the behaviour somebody on a bad phone connection gets.
+  // The markup carries no comment explaining this: check-publish refuses an
+  // HTML comment in index.html, because a comment ships to whoever views
+  // source. So it is written here. The anchor in the page is a real link to
+  // Calendly with target="_blank", loaded async and last, and it stays that
+  // way whatever happens below.
+  const link = document.getElementById('su-book-link');
+  if (!link) return;
+
+  link.addEventListener('click', (e) => {
+    if (!window.Calendly || typeof window.Calendly.initPopupWidget !== 'function') return;
+    e.preventDefault();
+    window.Calendly.initPopupWidget({ url: link.href });
+  });
+})();
