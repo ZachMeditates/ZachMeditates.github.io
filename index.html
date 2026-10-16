@@ -500,7 +500,7 @@ const lampHits=[];
 scene.add(new THREE.HemisphereLight(0x46585c,0x070a09,.3));
 const flash=new THREE.SpotLight(0xdfe8ff,0,11,.3,.75,1.4); scene.add(flash); scene.add(flash.target); let flashOn=true;
 /* volumetric flashlight beam (desktop): march through drifting fog inside the cone */
-const VBL=[null,{s:.22,n:.35,f:1.2,m:.22},{s:.45,n:.8,f:1.6,m:.38},{s:.33,n:1.0,f:4.2,m:.3}][+(location.search.match(/[?&]vfog=(\d)/)||[0,2])[1]]||null;
+const VBL=[null,{s:.22,n:.35,f:1.2,m:.22},{s:.45,n:.8,f:1.6,m:.38},{s:.33,n:1.0,f:4.2,m:.3}][+(location.search.match(/[?&]vfog=(\d)/)||[0,0])[1]]||null;
 let VB=null;
 if(!isPhone && VBL){
   const len=10, rad=len*Math.tan(.34); const g=new THREE.ConeGeometry(rad,len,40,1,false); g.translate(0,-len/2,0);
